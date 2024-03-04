@@ -14,7 +14,7 @@ additionalProperties:
           labelZh: 密码
           random: true
           required: true
-          rule: paramComplexity
+          rule: paramCommon
           type: password
         - default: 9000
           envKey: PANEL_APP_PORT_HTTP
