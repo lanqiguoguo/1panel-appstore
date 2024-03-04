@@ -3,7 +3,7 @@ additionalProperties:
         - default: minio
           envKey: PANEL_MINIO_ACCESS_KEY
           labelEn: User
-          labelZh: 用户
+          labelZh: ACCESS_KEY
           random: true
           required: true
           rule: paramComplexity
@@ -11,7 +11,7 @@ additionalProperties:
         - default: minio
           envKey: PANEL_MINIO_SECRET_KEY
           labelEn: Password
-          labelZh: 密码
+          labelZh: SECRET_KEY
           random: true
           required: true
           rule: paramCommon
