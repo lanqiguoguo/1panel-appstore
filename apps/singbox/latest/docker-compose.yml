@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  sing-box:
+    image: superng6/singbox
+    restart: unless-stopped
+    container_name: ${CONTAINER_NAME}
+    network_mode: "host"
+    volumes:
+      - ./conf/:/etc/sing-box/
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun

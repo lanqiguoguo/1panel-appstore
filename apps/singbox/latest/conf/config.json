@@ -1,0 +1,94 @@
+{
+    "log": {
+      "disabled": false,
+      "level": "info",
+      "timestamp": true
+    },
+    "dns": {
+      "servers": [
+        {
+          "tag": "cloudflare",
+          "address": "https://1.1.1.1/dns-query",
+          "strategy": "ipv4_only",
+          "detour": "direct"
+        },
+        {
+          "tag": "block",
+          "address": "rcode://success"
+        }
+      ],
+      "rules": [
+        {
+          "geosite": [
+            "category-ads-all"
+          ],
+          "server": "block",
+          "disable_cache": true
+        }
+      ],
+      "final": "cloudflare",
+      "strategy": "",
+      "disable_cache": false,
+      "disable_expire": false
+    },
+    "inbounds": [
+      {
+          "type": "vmess",
+          "listen": "::",
+          "listen_port": 7865,
+          "users": [
+              {
+                  "uuid": "63e278a9-8d42-4a3c-913c-29f02e07aeef",
+                  "alterId": 0
+              }
+          ],
+          "transport": {
+              "type": "ws",
+              "path": "/ws",
+              "max_early_data": 2048,
+              "early_data_header_name": "Sec-WebSocket-Protocol"
+          }
+      }
+    ],
+    "outbounds": [
+      {
+        "type": "direct",
+        "tag": "direct"
+      },
+      {
+        "type": "block",
+        "tag": "block"
+      },
+      {
+        "type": "dns",
+        "tag": "dns-out"
+      }
+    ],
+    "route": {
+      "geoip": {
+        "path": "geoip.db",
+        "download_url": "https://github.com/SagerNet/sing-geoip/releases/latest/download/geoip.db",
+        "download_detour": "direct"
+      },
+      "geosite": {
+        "path": "geosite.db",
+        "download_url": "https://github.com/SagerNet/sing-geosite/releases/latest/download/geosite.db",
+        "download_detour": "direct"
+      },
+      "rules": [
+        {
+          "protocol": "dns",
+          "outbound": "dns-out"
+        },
+        {
+          "geosite": [
+            "category-ads-all"
+          ],
+          "outbound": "block"
+        }
+      ],
+      "auto_detect_interface": true,
+      "final": "direct"
+    },
+    "experimental": {}
+  }

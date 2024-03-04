@@ -1,0 +1,20 @@
+name: gotify
+tags:
+    - 实用工具
+title: 一个简单的服务器来发送和接收消息
+type: 实用工具
+description: 一个简单的服务器来发送和接收消息
+additionalProperties:
+  key: gotify
+  name: gotify
+  tags:
+    - Tool
+  shortDescZh: 一个简单的服务器来发送和接收消息
+  shortDescEn: a simple server for sending and receiving messages
+  type: tool
+  crossVersionUpdate: true
+  limit: 0
+  recommend: 0
+  website:  https://gotify.net/
+  github:  https://github.com/gotify/server
+  document:  https://gotify.net/docs/
