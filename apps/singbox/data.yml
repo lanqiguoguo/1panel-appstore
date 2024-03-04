@@ -5,7 +5,7 @@ title: 通用代理平台
 type: 实用工具
 description: 通用代理平台
 additionalProperties:
-  key: sing_box
+  key: sing-box
   name: sing-box
   tags:
     - Tool
